@@ -1,29 +1,32 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
+
 using namespace std;
 
-char a[1000001];
 char res[7] = { '2','8','t','e','c','h'};
 int main()
 {
 	int n;
 	cin >> n;
+	vector <char> a(n);
 	for (int i = 0; i < n; i++)
 	{
 		cin >> a[i];
 	}
-	bool flag = false;
-	for (int i = 0; i < n; i++)
+	int temp = 0;
+	for (int i = 0; i < n; i+=2)
 	{
-		if (i % 2 == 0)
+		if (a[i] == res[temp])
 		{
-			if (a[i] == res[i])
+			temp++;
+			if (temp == 6)
 			{
-				flag = true;
+				break;
 			}
 		}
 	}
-	if (flag)
+	if (temp == 6)
 	{
 		cout << "28TECH" << endl;
 	}
